@@ -7,10 +7,9 @@
 
 echo "Delete current dist..."
 rm -vrf dist
-rm -vrf src/magic_config.egg-info
+rm -vrf nosql_storage_wrapper/*.egg-info
 
 python -m build
 
 #python -m twine upload --verbose --repository testpypi dist/*
-#python -m twine upload --verbose dist/* --skip-existing
-
+python -m twine upload --verbose dist/*

@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 import sys
 import pathlib
-import tomli
+import tomllib
 from setuptools import find_packages, setup
+from pprint import pprint
 
 WORK_DIR = pathlib.Path(__file__).parent
 
@@ -22,38 +23,34 @@ def get_description() -> str:
         return f.read()
 
 
-def parse_project_toml() -> dict:
-    """
-    Read version
-    :return: str
-    """
+def get_meta_info() -> dict:
     try:
         with open("pyproject.toml", "rb") as f:
-            return tomli.load(f)
+            return tomllib.load(f)
     except IndexError:
-        raise RuntimeError("Unable to determine version.")
+        raise RuntimeError('Unable to determine version.')
 
 
-project_meta = parse_project_toml()
-
+project_meta = get_meta_info()
+project_dir = project_meta["project"]["name"].replace("-", "_")
 
 setup(
+    license="MIT",
     name=project_meta["project"]["name"],
     version=project_meta["project"]["version"],
-    license="MIT",
     author=project_meta["project"]["authors"][0]["name"],
     author_email=project_meta["project"]["authors"][0]["email"],
-    description=project_meta["project"]["description"],
+    description="A simple library for easy work with key-value storages and document databases",
     long_description=get_description(),
     long_description_content_type="text/markdown",
     url="https://github.com/frontdevops/nosql-storage-wrapper",
-    download_url="https://github.com/frontdevops/nosql-storage-wrapper/archive/refs/tags/0.1.9.tar.gz",
+    download_url="https://github.com/frontdevops/nosql-storage-wrapper/archive/refs/tags/0.1.0.tar.gz",
     project_urls={
         "Documentation": "https://github.com/frontdevops/nosql-storage-wrapper/blob/main/README.md",
         "Source": "https://github.com/frontdevops/nosql-storage-wrapper",
         "Bug Tracker": "https://github.com/frontdevops/nosql-storage-wrapper/issues",
     },
-    keywords=["pypi", "config", "tutorial"],
+    keywords=["mongo", "mongodb", "storage"],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
         "License :: OSI Approved :: MIT License",
@@ -62,16 +59,16 @@ setup(
         "Programming Language :: Python :: 3.11",
         "Topic :: Software Development :: Libraries :: Application Utilities",
     ],
-    package_dir={"": "magic_config"},
-    packages=find_packages(where=project_meta["project"]["name"],
-                           exclude=("tests", "tests.*", "examples.*", "docs",)
+    package_dir={"": project_dir},
+    packages=find_packages(where=project_dir,
+                           exclude=("tests", "tests.*", "examples.*", "docs",),
                            ),
     include_package_data=False,
     python_requires=">=3.10.8",
     install_requires=[
         "motor==3.1.1",
         "pymongo==4.3.2",
-        "magic_config==0.1.10",
+        "magic-config==0.1.10",
     ],
     extras_require={
         "dev": [
