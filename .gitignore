@@ -129,4 +129,6 @@ dmypy.json
 
 # JetBrains project settings
 .idea/
+.DS_Store
+
 
