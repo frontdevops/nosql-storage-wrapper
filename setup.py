@@ -44,7 +44,8 @@ setup(
     long_description=get_description(),
     long_description_content_type="text/markdown",
     url="https://github.com/frontdevops/nosql-storage-wrapper",
-    download_url="https://github.com/frontdevops/nosql-storage-wrapper/archive/refs/tags/0.1.1.tar.gz",
+    download_url=("https://github.com/frontdevops/nosql-storage-wrapper/archive/refs/tags/"
+                  f'{project_meta["project"]["version"]}.tar.gz'),
     project_urls={
         "Documentation": "https://github.com/frontdevops/nosql-storage-wrapper/blob/main/README.md",
         "Source": "https://github.com/frontdevops/nosql-storage-wrapper",
@@ -68,7 +69,7 @@ setup(
     install_requires=[
         "motor==3.1.1",
         "pymongo==4.3.2",
-        "magic-config==0.1.10",
+        "magic-config>=0.1.10",
     ],
     extras_require={
         "dev": [
