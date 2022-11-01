@@ -7,6 +7,11 @@ A simple library for easy work with key-value storages and document databases
 pip install nosql-storage-wrapper
 ```
 
+## Upgrade
+```bash
+pip install --upgrade nosql-storage-wrapper
+```
+
 
 ## Work with MongoDB
 
