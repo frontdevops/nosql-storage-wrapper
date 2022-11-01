@@ -44,7 +44,7 @@ setup(
     long_description=get_description(),
     long_description_content_type="text/markdown",
     url="https://github.com/frontdevops/nosql-storage-wrapper",
-    download_url="https://github.com/frontdevops/nosql-storage-wrapper/archive/refs/tags/0.1.0.tar.gz",
+    download_url="https://github.com/frontdevops/nosql-storage-wrapper/archive/refs/tags/0.1.1.tar.gz",
     project_urls={
         "Documentation": "https://github.com/frontdevops/nosql-storage-wrapper/blob/main/README.md",
         "Source": "https://github.com/frontdevops/nosql-storage-wrapper",

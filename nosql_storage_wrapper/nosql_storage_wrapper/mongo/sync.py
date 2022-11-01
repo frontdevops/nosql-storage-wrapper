@@ -25,7 +25,7 @@ class MongoClient:
         Constructor
         """
         self.__client = pymongo.MongoClient(Config.mongo_url)
-        self.__db = self.__client[Config.MongoStorage.db_name]
+        self.__db = self.__client[Config.mongo_db]
 
     def __call__(self, collection):
         """

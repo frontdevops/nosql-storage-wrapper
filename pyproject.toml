@@ -7,7 +7,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nosql-storage-wrapper"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
     { name = "Alexander Majorov", email = "alexander.majorov@gmail.com" },
 ]
