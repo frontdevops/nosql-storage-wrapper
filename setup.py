@@ -67,8 +67,8 @@ setup(
     include_package_data=False,
     python_requires=">=3.10.8",
     install_requires=[
-        "motor==3.1.1",
-        "pymongo==4.3.2",
+        "motor>=3.1.1",
+        "pymongo>=4.3.2",
         "magic-config>=0.1.10",
     ],
     extras_require={
