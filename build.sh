@@ -4,6 +4,8 @@
 #twine upload --repository-url https://test.pypi.org/legacy/ dist/*
 # check-manifest
 
+git pull origin main && git add --all . && git ci -m "Upfix" && tag -a v0.1.3 && git push origin main && git push origin --tags
+
 
 echo "Delete current dist..."
 rm -vrf dist
